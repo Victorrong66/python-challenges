@@ -1,6 +1,8 @@
 # Ask the user for their name and greet them.
 name = input("What is your name? ")
 
+# The f in the print statement allows for the variable in the {} to be 
+# recognized as code/variable and not just text
 print(f"Hello, {name}! Welcome to Python")
 
 # Ask the user for their age and tell them how many days they've been alive.
@@ -53,6 +55,7 @@ for i in range (1, 4):
 
 print(f"Your favorite foods are: {foods}")
 
+# 3/30/26
 # Using the same foods list idea, ask the user for 3 foods again but 
 # this time print:
 
@@ -150,3 +153,98 @@ maxNum, minNum, averageNum = getMaxAndMin(nums)
 print(f"Highest: {maxNum}")
 print(f"Lowest: {minNum}")
 print(f"Average: {averageNum}")
+
+# 3/31/26
+# Ask the user to type a sentence, then tell them how many words are in it and 
+# print each word on its own line numbered.
+
+sentence = input(f"Enter a sentence: ")
+words = sentence.split()
+
+print(f"Word count: {len(words)}")
+
+for index, word in enumerate(words, 1):
+    print(f"{index}. {word}")
+
+
+# Write a program that asks the user to create a password and checks if it's 
+# strong enough. A strong password must:
+#
+# Be at least 8 characters long
+# Contain at least one number
+# 
+# Keep asking until they enter a strong password.
+
+while True:
+    password = input("Enter a password: ")
+
+    if len(password) < 8:
+        print("Your password's too short, add more characters")
+    elif not any(char.isdigit() for char in password): # any() with a loop inside is called a list comprehension style expression
+        print("Add a number! Your password must contain at least one number")
+    else:
+        print("Password accepted")
+        break
+
+# Ask the user to enter 5 numbers, store them in a list, then print them in 
+# both ascending and descending order.
+
+nums = []
+
+for i in range(1, 6):
+    num = int(input(f"Enter number: "))
+    nums.append(num)
+
+# .sort() will sort the numbers you entered int the array
+nums.sort()
+ascendingNum = nums
+# sorted() will sort the nums and the reverse=True will reverse the numers 
+# already in order
+descendingNum = sorted(nums, reverse=True)
+
+print(f"Ascending: {ascendingNum}")
+print(f"Descending: {descendingNum}")
+
+# The computer picks a random number between 1 and 10. The user keeps guessing 
+# until they get it right. Tell them if they're too high or too low each time.
+
+import random
+randomNum = random.randint(1,10)
+
+numTries = 0
+
+while True:
+    num = int(input("Guess a number between 1 and 10: "))
+
+    if num > randomNum:
+        print(f"You're too high! Try again")
+        numTries += 1
+    elif num < randomNum:
+        print(f"You're too low! Try again")
+        numTries += 1
+    else:
+        numTries += 1
+        # The f in the print statement allows for the variable in the {} to be 
+        # recognized as code/variable and not just text
+        print(f"You got the number in {numTries}")
+        break
+
+# Ask the user to enter 6 numbers one at a time. If they enter a number that's 
+# already in the list, tell them and don't add it. At the end print the final list.
+
+nums = []
+
+i = 1
+
+while i  <= 6:
+    num = int(input(f"Enter number {i}"))
+
+    if num in nums:
+        print(f"{num} has been already added to the list!")
+    else:
+        # putting the append and the inrement inside the else statement will allow for
+        # the number of tries to go up and the number to be added if it's not a duplicate
+        nums.append(num)
+        i += 1
+
+print(f"Your list: {nums}")

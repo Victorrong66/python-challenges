@@ -198,7 +198,7 @@ for i in range(1, 6):
 # .sort() will sort the numbers you entered int the array
 nums.sort()
 ascendingNum = nums
-# sorted() will sort the nums and the reverse=True will reverse the numers 
+# sort() will sort the nums and the reverse=True will reverse the numers 
 # already in order
 descendingNum = sorted(nums, reverse=True)
 
@@ -242,9 +242,117 @@ while i  <= 6:
     if num in nums:
         print(f"{num} has been already added to the list!")
     else:
-        # putting the append and the inrement inside the else statement will allow for
+        # putting the append and the increment inside the else statement will allow for
         # the number of tries to go up and the number to be added if it's not a duplicate
         nums.append(num)
         i += 1
 
 print(f"Your list: {nums}")
+
+# Create a dictionary called person with name, age, and city.
+# Print each value using its key.
+
+person = {"name": "Victor", "age": 27, "city": "Fredericksburg"}
+
+# In print values, the dictionary item will be put in {} and you will write the dictionary
+# Item in there
+print(f"Name: {person['name']}")
+print(f"Age: {person['age']}")
+print(f"City: {person['city']}")
+
+# Dictionary items are written like this:
+# person["name"] - Reading a value
+#
+# person["name"] = "New Name" - Updating a value
+#
+# person["job"] = "Network Technician"] - Adding a brand new key
+# 
+
+# Start with the same person dictionary, then:
+
+# Update the city to a new city
+# Add a brand new key called job
+# Print the whole dictionary to see the result
+
+person = {
+    'name': 'Victor',
+    'age': 27, 
+    'city': 'Springfield',
+}
+
+person['city']= 'Fredericksburg'
+person['job']= 'Network Technician'
+
+print(person)
+
+# Remember dictionary items need to have : to act as the = sign, 
+# Outside the dictionary items, it can be =
+
+# Create a dictionary with 3 of your favorite movies as keys and 
+# their release years as values. Then loop through it and print each one.
+
+movies = {
+    'Iron Man': 2008,
+    'The Amazing Spider-Man': 2012,
+    'Project Hail Mary': 2026
+}
+
+# The key, value is how the dictionary items are separated
+for key, value in movies.items():
+    print(f"Movie: {key} - Year: {value}") #Enumeration method (enumerate())
+
+# Create a list of 3 dictionaries, where each dictionary represents a 
+# person with a name and score. Then loop through the list and print each 
+# person's name and score.
+#
+# Ex: Victor scored 95
+#     Sarah scored 87
+#     Marcus scored 72
+
+scores = [
+    {'name': 'victor', 'score': 95}, 
+    # Each dictionary item in the list needs to be written out like this if
+    # everything is associated to each other
+    {'name': 'sarah', 'score': 87},
+    {'name': 'marcus', 'score': 72}
+]
+
+# You call the entire list name and you change it to person to change it to one
+# dictionary item each time it loops
+for person in scores:
+    print(f"{person['name']} scored {person['score']}")
+
+
+# Create a dictionary of 4 countries and their populations. Then:
+#
+# Print all the keys
+# Print all the values
+# Check if a specific country is in the dictionary
+#
+# Ex: 
+# Countries: dict_keys(['USA', 'China', 'Japan', 'Brazil'])
+# Populations: dict_values([331000000, 1400000000, 125000000, 213000000])
+# Is Germany in the list? False
+# Is Japan in the list? True
+
+population = {
+    'USA': 331000000,
+    'China': 1400000000,
+    'Japan': 125000000,
+    'Brazil': 213000000
+}
+
+# .keys() allows you to pull just keys item in the dictionary
+countries = population.keys() 
+
+# .values() allows you to pull just the values item of the dictionary
+populationSize = population.values() 
+
+# List out the list of values that are associated to the variable
+print(f"Countries: {countries}")
+print(f"Populations: {populationSize}")
+
+
+# prints out true or false after comparing if the keys item is one of the dictionary items
+print(f"Is Germany in the list? {'Germany' in countries}")
+print(f"is Japan in the list? {'Japan' in countries}")

@@ -356,3 +356,25 @@ print(f"Populations: {populationSize}")
 # prints out true or false after comparing if the keys item is one of the dictionary items
 print(f"Is Germany in the list? {'Germany' in countries}")
 print(f"is Japan in the list? {'Japan' in countries}")
+
+# 4/3/26
+#
+# Write a program that asks the user for their name and favorite food, then saves that info 
+# to a text file called info.txt.
+
+name = input(f"Enter your name: ")
+food = input(f"Enter your favorite food: ")
+
+# With statement handles the file
+# "w" writes to the file
+with open("info.txt", "w") as file:
+    file.write(f"Name: {name}\n")
+    file.write(f"Favorite food: {food}\n")
+print("Info saved to info.txt")
+
+# Now read back what you just wrote! Write a program that opens info.txt and prints its 
+# contents to the terminal.
+
+with open("info.txt", "r") as file:
+    info = file.read()
+    print(info)
